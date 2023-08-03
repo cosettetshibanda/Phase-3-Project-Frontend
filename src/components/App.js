@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Categories from "./Categories";
+import CategoriesList from "./CategoriesList";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <Categories categories={categories} />
+      <CategoriesList categories={categories} />
     </div>
   );
 }
