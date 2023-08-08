@@ -1,6 +1,13 @@
+import AnimalCard from "./AnimalCard"
+import AnimalForm from "./AnimalForm"
+
 function Category() {
+
     return(
-        <div></div>
+        <div>
+            <AnimalCard />
+            <AnimalForm />
+        </div>
 
     )
 }

@@ -6,7 +6,7 @@ function CategoriesForm(){
             <form>
                 <input  type="text" name="name" placeholder="Category name" />
                 <input type="text" name="image" placeholder="Image URL" />
-                <button type="submit">Add Plant</button>
+                <button type="submit">Add Category</button>
             </form>
         </div>
     )
