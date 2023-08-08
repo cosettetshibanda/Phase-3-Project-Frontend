@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import CategoriesForm from "./CategoriesForm";
 import Category from "./Category";
+import { Route, Switch } from "react-router-dom";
 
 
 function App() {
@@ -15,7 +16,12 @@ function App() {
 
   return (
     <div>
+      <NavBar />
+      <Switch >
+        <Route exact path="/" >
         <h1>Categories</h1>
+        </Route>
+      </Switch>
         
         <Category />
         <CategoriesForm />
