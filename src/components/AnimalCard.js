@@ -1,6 +1,10 @@
+import AnimalForm from "./AnimalForm"
+
 function AnimalCard () {
     return (
-        <div></div>
+        <div>
+            <AnimalForm />
+        </div>
     )
 }
 

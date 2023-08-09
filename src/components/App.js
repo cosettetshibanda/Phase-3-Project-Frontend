@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import CategoryList from "./CategoryList";
 import CategoriesForm from "./CategoriesForm";
+import AnimalCard from "./AnimalCard";
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         <Route path="/newCategory">
           <CategoriesForm />
         </Route>
+        <Route path="/categories/:id">
+                    <AnimalCard />
+                </Route>
       </Switch>
         
     </div>
