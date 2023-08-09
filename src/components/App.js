@@ -15,6 +15,12 @@ function App() {
       .then(setCategories)
   }, [])
 
+  function handleAddCategory(newCategory) {
+    setCategories([...categories, newCategory]);
+  }
+
+  
+
   return (
     <div>
       <NavBar />
@@ -23,7 +29,7 @@ function App() {
           <CategoryList categories={categories} />
         </Route>
         <Route path="/newCategory">
-          <CategoriesForm />
+          <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
                     <AnimalCard />

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function CategoriesForm(){
+function CategoriesForm({handleAddCategory}){
     const [formData, setFormData] = useState({
         name: "",
         img: ""
@@ -16,19 +16,21 @@ function CategoriesForm(){
 
     function handleSubmit(e){
         e.preventDefault()
-        
-    //     useEffect(() => {
-    //         fetch ("http://localhost:9292/categories", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify()
-    //             })
-    //           .then(r => r.json())
-    //           .then(data => console.log(data))
-    //       }, [])
-    }
+
+        const newCategory = {
+            ...formData
+        }
+    
+         fetch ("http://localhost:9292/categories", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newCategory)
+              })
+              .then(r => r.json())
+              .then(category => handleAddCategory(category))
+            }
 
 
     return (
@@ -49,8 +51,9 @@ function CategoriesForm(){
                     name="image" 
                     placeholder="Image URL" />
                 <button 
-                    type="submit">Add Category</button>
-                    {/* onSubmit={handleSubmit} */}
+                    type="submit"
+                    onSubmit={handleSubmit}
+                    >Add Category</button>
             </form>
         </div>
     )
