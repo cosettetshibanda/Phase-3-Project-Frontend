@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import CategoriesForm from "./CategoriesForm";
-import Category from "./Category";
 import { Route, Switch } from "react-router-dom";
+import CategoryList from "./CategoryList";
+import CategoriesForm from "./CategoriesForm";
 
 
 function App() {
-  const [categories, setCategories] = useState ("")
+  const [categories, setCategories] = useState ([])
 
   useEffect(() => {
     fetch ("http://localhost:9292/categories")
@@ -19,12 +19,13 @@ function App() {
       <NavBar />
       <Switch >
         <Route exact path="/" >
-        <h1>Categories</h1>
+          <CategoryList categories={categories} />
+        </Route>
+        <Route path="/newCategory">
+          <CategoriesForm />
         </Route>
       </Switch>
         
-        <Category />
-        <CategoriesForm />
     </div>
     )
 }
