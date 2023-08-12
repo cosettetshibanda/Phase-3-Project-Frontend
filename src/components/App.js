@@ -19,14 +19,17 @@ function App() {
     setCategories([...categories, newCategory]);
   }
 
-  
+  function handleDeleleteCategory(CategoryToDelete) {
+    const updatedCategories = categories.filter((Category) => Category.id !== CategoryToDelete.id);
+    setCategories(updatedCategories);
+  }
 
   return (
     <div>
       <NavBar />
       <Switch >
         <Route exact path="/" >
-          <CategoryList categories={categories} />
+          <CategoryList categories={categories} onDeleteCategory={handleDeleleteCategory} />
         </Route>
         <Route path="/newCategory">
           <CategoriesForm handleAddCategory={handleAddCategory}/>

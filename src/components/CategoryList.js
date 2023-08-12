@@ -1,14 +1,13 @@
 
 import Category from "./Category";
 
-function CategoryList({categories}) {
+function CategoryList({categories, onDeleteCategory}) {
 
     const categoryItems = categories.map((category) => (
         <Category
             key={category.id}
-            id={category.id}
-            name={category.name}
-            image={category.img}
+            category={category}
+            onDeleteCategory={onDeleteCategory}
         />
     ));
     return (

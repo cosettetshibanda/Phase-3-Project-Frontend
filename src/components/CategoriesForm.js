@@ -29,7 +29,7 @@ function CategoriesForm({handleAddCategory}){
             body: JSON.stringify(newCategory)
               })
               .then(r => r.json())
-              .then(category => handleAddCategory(category))
+              .then(handleAddCategory)
             }
 
 
