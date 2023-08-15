@@ -7,7 +7,7 @@ function CategoriesForm({handleAddCategory}){
 })
 
 
-    function handleChange(e){
+    const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name] :e.target.value
@@ -15,7 +15,7 @@ function CategoriesForm({handleAddCategory}){
         console.log("hello")
     }
 
-    function handleSubmit(e){
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         const newCategory = {

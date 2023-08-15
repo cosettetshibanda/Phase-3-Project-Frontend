@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 function Category({category, onDeleteCategory}) {
 
-    function handleDeleteClick() {
+    const handleDeleteClick = () => {
         fetch(`http://localhost:9292/categories/${category.id}`, {
             method: "DELETE",
         })

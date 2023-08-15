@@ -9,6 +9,7 @@ function CategoryList({categories, onDeleteCategory}) {
             category={category}
             onDeleteCategory={onDeleteCategory}
         />
+    
     ));
     return (
         <div id="project-list">{categoryItems}</div>
