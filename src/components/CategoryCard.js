@@ -1,6 +1,6 @@
 import AnimalForm from "./AnimalForm"
 
-function AnimalCard () {
+function CategoryCard () {
     return (
         <div>
             <AnimalForm />
@@ -8,4 +8,4 @@ function AnimalCard () {
     )
 }
 
-export default AnimalCard
+export default CategoryCard

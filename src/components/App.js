@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import CategoryList from "./CategoryList";
 import CategoriesForm from "./CategoriesForm";
-import AnimalCard from "./AnimalCard";
+import CategoryCard from "./CategoryCard";
 
 
 function App() {
@@ -15,14 +15,15 @@ function App() {
       .then(setCategories)
   }, [])
 
-  function handleAddCategory(newCategory) {
+  const handleAddCategory = (newCategory) => {
     setCategories([...categories, newCategory]);
   }
 
-  function handleDeleleteCategory(CategoryToDelete) {
+  const handleDeleleteCategory = (CategoryToDelete) => {
     const updatedCategories = categories.filter((Category) => Category.id !== CategoryToDelete.id);
     setCategories(updatedCategories);
   }
+
 
   return (
     <div>
@@ -35,7 +36,7 @@ function App() {
           <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
-                    <AnimalCard />
+                    <CategoryCard />
                 </Route>
       </Switch>
         
