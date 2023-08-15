@@ -28,3 +28,7 @@ function Category({category, onDeleteCategory}) {
 }
 
 export default Category
+
+
+
+

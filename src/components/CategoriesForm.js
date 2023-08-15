@@ -11,7 +11,8 @@ function CategoriesForm({handleAddCategory}){
         setFormData({
             ...formData,
             [e.target.name] :e.target.value
-    })
+        })
+        console.log("hello")
     }
 
     function handleSubmit(e){
@@ -21,23 +22,26 @@ function CategoriesForm({handleAddCategory}){
             ...formData
         }
     
-         fetch ("http://localhost:9292/categories", {
+        fetch ("http://localhost:9292/categories", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newCategory)
-              })
-              .then(r => r.json())
-              .then(handleAddCategory)
-            }
+        })
+        .then(r => r.json())
+        .then(data => {
+
+            handleAddCategory(data)
+        })
+    }
 
 
     return (
 
         <div className="NewCategory" >
             <h2>Add New Category</h2>
-            <form>
+            <form  onSubmit={handleSubmit}>
                 <input 
                     onChange={handleChange}
                     value={formData.name} 
@@ -48,11 +52,10 @@ function CategoriesForm({handleAddCategory}){
                     onChange={handleChange}
                     value={formData.img} 
                     type="text" 
-                    name="image" 
+                    name="img" 
                     placeholder="Image URL" />
                 <button 
                     type="submit"
-                    onSubmit={handleSubmit}
                     >Add Category</button>
             </form>
         </div>
