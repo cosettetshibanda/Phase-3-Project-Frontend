@@ -24,16 +24,31 @@ function App() {
     setCategories(updatedCategories);
   }
 
+  // function handleAddAnimal(newAnimal) {
+  //   const addedAnimal = categories.map((category) => {
+  //     if (category.id === newAnimal.category_id) {
+  //       return newAnimal;
+  //     } else {
+  //       return category;
+  //     }
+  //   });
+  //   setCategories(addedAnimal);
+  // }
+
   function handleAddAnimal(newAnimal) {
-    const addedAnimal = categories.map((category) => {
-      if (category.id === newAnimal.category_id) {
-        return newAnimal;
-      } else {
-        return category;
-      }
-    });
-    setCategories(addedAnimal);
-  }
+    const category = categories.find((category) => category.id === newAnimal.category_id)
+    const updatedAnimals = [...category.animals, newAnimal]
+    const updatedCategory = {...category, animals: updatedAnimals}
+    const updatedCategories = categories.map((c) => {
+        if (c.ij === category.id) {
+            return updatedCategory
+        }
+        else {
+            return c
+        }
+    })
+    setCategories(updatedCategories)    
+}
 
 
   return (

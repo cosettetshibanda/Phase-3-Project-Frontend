@@ -6,13 +6,16 @@ function CategoryCard ({categories, handleAddAnimal}) {
     const params = useParams()
 
     const categoryItems = categories.map((category) => (
-        <AnimalsList
-            key={category.id}
-            category={category}
-            params={params}
-        />
-    
-    ));
+            <AnimalsList
+                key={category.id}
+                category={category}
+                params={params}
+            />
+        
+    ))
+
+
+    console.log(categoryItems)
     return (
         <div>
             <div id="Animal-list">{categoryItems}</div>
