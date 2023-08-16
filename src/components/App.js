@@ -24,6 +24,17 @@ function App() {
     setCategories(updatedCategories);
   }
 
+  function handleAddAnimal(newAnimal) {
+    const addedAnimal = categories.map((category) => {
+      if (category.id === newAnimal.category_id) {
+        return newAnimal;
+      } else {
+        return category;
+      }
+    });
+    setCategories(addedAnimal);
+  }
+
 
   return (
     <div>
@@ -36,7 +47,7 @@ function App() {
           <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
-                    <CategoryCard categories={categories} handleAddAnimal={handleAddCategory}/>
+                    <CategoryCard categories={categories} handleAddAnimal={handleAddAnimal}/>
                 </Route>
       </Switch>
         
@@ -47,3 +58,5 @@ function App() {
 export default App;
 
 
+//find category
+//add to specific category

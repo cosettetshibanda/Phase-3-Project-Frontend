@@ -22,3 +22,6 @@ function CategoryCard ({categories, handleAddAnimal}) {
 }
 
 export default CategoryCard
+
+//find category where the id matches params
+//map through the animals to get name and img

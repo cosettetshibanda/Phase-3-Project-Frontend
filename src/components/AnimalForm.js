@@ -4,8 +4,10 @@ function AnimalForm({params, handleAddAnimal}){
     const [formData, setFormData] = useState({
         name: "",
         img: "",
-        category_id: params
+        category_id: params.id
     })
+
+    console.log(params)
 
     const handleChange = (e) => {
         setFormData({
@@ -48,3 +50,6 @@ function AnimalForm({params, handleAddAnimal}){
 }
 
 export default AnimalForm
+
+//use category id to find proper category
+//use spread operators
