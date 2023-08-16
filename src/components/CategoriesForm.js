@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom"
 
 function CategoriesForm({handleAddCategory}){
+    const history = useHistory()
     const [formData, setFormData] = useState({
         name: "",
         img: ""
@@ -32,6 +34,11 @@ function CategoriesForm({handleAddCategory}){
         .then(data => {
 
             handleAddCategory(data)
+            history.push("/");
+        })
+        setFormData({
+            name: "",
+            img: ""
         })
     }
 
