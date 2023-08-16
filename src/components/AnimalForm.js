@@ -35,6 +35,10 @@ function AnimalForm({params, handleAddAnimal}){
 
             handleAddAnimal(data)
         })
+        setFormData({
+            name: "",
+            img: ""
+        })
     }
 
     return(

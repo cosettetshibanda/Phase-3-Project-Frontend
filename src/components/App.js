@@ -40,7 +40,7 @@ function App() {
     const updatedAnimals = [...category.animals, newAnimal]
     const updatedCategory = {...category, animals: updatedAnimals}
     const updatedCategories = categories.map((c) => {
-        if (c.ij === category.id) {
+        if (c.id === category.id) {
             return updatedCategory
         }
         else {
