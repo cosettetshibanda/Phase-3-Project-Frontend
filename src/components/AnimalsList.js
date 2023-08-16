@@ -1,6 +1,6 @@
 import Animal from "./Animal"
 
-function AnimalsList({category}) {
+function AnimalsList({category, params}) {
 
     const findAnimals = category.animals.map((animal) => (
             <Animal 
@@ -8,7 +8,7 @@ function AnimalsList({category}) {
             animal={animal}
             />
         ))
-        
+
     return (
         <div>
          

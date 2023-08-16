@@ -36,7 +36,7 @@ function App() {
           <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
-                    <CategoryCard categories={categories}/>
+                    <CategoryCard categories={categories} handleAddAnimal={handleAddCategory}/>
                 </Route>
       </Switch>
         

@@ -12,7 +12,6 @@ function CategoriesForm({handleAddCategory}){
             ...formData,
             [e.target.name] :e.target.value
         })
-        console.log("hello")
     }
 
     const handleSubmit = (e) => {
