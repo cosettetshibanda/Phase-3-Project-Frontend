@@ -1,12 +1,22 @@
 import AnimalForm from "./AnimalForm"
 import {useParams} from "react-router-dom"
 import Animal from "./Animal";
+import { useEffect, useState } from "react";
 
 function CategoryCard ({categories, handleAddAnimal}) {
     const params = useParams()
+    const [selectedCategory, setSelectedCategory] = useState({
+        animals: []
+    })
 
-    const category = categories.find((category) => category.id === parseInt(params.id))
-    const animals = category.animals.map((animal) =>(
+    useEffect(() => {
+        const category = categories.find((category) => category.id === parseInt(params.id))
+        if(category){
+            setSelectedCategory(category)
+        }
+    }, [categories])
+
+    const animals = selectedCategory.animals.map((animal) =>(
 
         <Animal
             key={animal.id}
