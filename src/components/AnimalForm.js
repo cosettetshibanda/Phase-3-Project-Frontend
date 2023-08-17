@@ -7,7 +7,6 @@ function AnimalForm({params, handleAddAnimal}){
         category_id: params.id
     })
 
-    console.log(params)
 
     const handleChange = (e) => {
         setFormData({

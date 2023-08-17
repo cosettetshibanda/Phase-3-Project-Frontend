@@ -1,24 +1,22 @@
 import AnimalForm from "./AnimalForm"
-import AnimalsList from "./AnimalsList";
 import {useParams} from "react-router-dom"
+import Animal from "./Animal";
 
 function CategoryCard ({categories, handleAddAnimal}) {
     const params = useParams()
 
-    const categoryItems = categories.map((category) => (
-            <AnimalsList
-                key={category.id}
-                category={category}
-                params={params}
-            />
-        
+    const category = categories.find((category) => category.id === parseInt(params.id))
+    const animals = category.animals.map((animal) =>(
+
+        <Animal
+            key={animal.id}
+            animal={animal}
+        />
     ))
-
-
-    console.log(categoryItems)
+        
     return (
         <div>
-            <div id="Animal-list">{categoryItems}</div>
+            <div id="Animal-list">{animals}</div>
             <AnimalForm params={params} handleAddAnimal={handleAddAnimal} />
         </div>
     )

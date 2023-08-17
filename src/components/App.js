@@ -24,16 +24,6 @@ function App() {
     setCategories(updatedCategories);
   }
 
-  // function handleAddAnimal(newAnimal) {
-  //   const addedAnimal = categories.map((category) => {
-  //     if (category.id === newAnimal.category_id) {
-  //       return newAnimal;
-  //     } else {
-  //       return category;
-  //     }
-  //   });
-  //   setCategories(addedAnimal);
-  // }
 
   function handleAddAnimal(newAnimal) {
     const category = categories.find((category) => category.id === newAnimal.category_id)
