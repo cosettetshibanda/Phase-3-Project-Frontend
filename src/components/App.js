@@ -19,11 +19,22 @@ function App() {
     setCategories([...categories, newCategory]);
   }
 
-  const handleDeleleteCategory = (CategoryToDelete) => {
-    const updatedCategories = categories.filter((Category) => Category.id !== CategoryToDelete.id);
-    setCategories(updatedCategories);
-  }
 
+  function handleDeleteAnimal(animal) {
+    const category = categories.find((category) => category.id === animal.category_id)
+    const updatedAnimals = category.animals.filter((a) => a.id !==animal.id);
+    const updatedCategory = {...category, animals: updatedAnimals}
+    const updatedCategories = categories.map((c) => {
+        if (c.id === category.id) {
+            return updatedCategory
+        }
+        else {
+            return c
+        }
+    })
+    setCategories(updatedCategories)
+}
+  
 
   function handleAddAnimal(newAnimal) {
     const category = categories.find((category) => category.id === newAnimal.category_id)
@@ -46,13 +57,13 @@ function App() {
       <NavBar />
       <Switch >
         <Route exact path="/" >
-          <CategoryList categories={categories} onDeleteCategory={handleDeleleteCategory} />
+          <CategoryList categories={categories}  />
         </Route>
         <Route path="/newCategory">
           <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
-                    <CategoryCard categories={categories} handleAddAnimal={handleAddAnimal}/>
+                    <CategoryCard onDeleteAnimal={handleDeleteAnimal} categories={categories} handleAddAnimal={handleAddAnimal}/>
                 </Route>
       </Switch>
         
