@@ -6,7 +6,7 @@ function Category({category}) {
     return(
         <div>
             <div className="project-item">
-                <h3>{category.name}</h3>
+                <h2>{category.name}</h2>
                 <img src={category.img} alt={category.name} />
                 <br></br>
                 <NavLink to={`/categories/${category.id}`}>See Animals</NavLink>
