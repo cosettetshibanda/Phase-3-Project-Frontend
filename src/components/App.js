@@ -36,9 +36,9 @@ function App() {
 }
   
 
-  function handleAddAnimal(newAnimal) {
-    const category = categories.find((category) => category.id === newAnimal.category_id)
-    const updatedAnimals = [...category.animals, newAnimal]
+  function handleUpdateAnimal(updatedAnimal) {
+    const category = categories.find((category) => category.id === updatedAnimal.category_id)
+    const updatedAnimals = category.animals.map((animal) =>animal.id === updatedAnimal.id ? updatedAnimal : animal)
     const updatedCategory = {...category, animals: updatedAnimals}
     const updatedCategories = categories.map((c) => {
         if (c.id === category.id) {
@@ -49,6 +49,21 @@ function App() {
         }
     })
     setCategories(updatedCategories)    
+}
+
+function handleAddAnimal(newAnimal) {
+  const category = categories.find((category) => category.id === newAnimal.category_id)
+  const updatedAnimals = [...category.animals, newAnimal]
+  const updatedCategory = {...category, animals: updatedAnimals}
+  const updatedCategories = categories.map((c) => {
+      if (c.id === category.id) {
+          return updatedCategory
+      }
+      else {
+          return c
+      }
+  })
+  setCategories(updatedCategories)    
 }
 
 
@@ -63,7 +78,7 @@ function App() {
           <CategoriesForm handleAddCategory={handleAddCategory}/>
         </Route>
         <Route path="/categories/:id">
-                    <CategoryCard onDeleteAnimal={handleDeleteAnimal} categories={categories} handleAddAnimal={handleAddAnimal}/>
+                    <CategoryCard onDeleteAnimal={handleDeleteAnimal} categories={categories} handleAddAnimal={handleAddAnimal} handleUpdateAnimal={handleUpdateAnimal} />
                 </Route>
       </Switch>
         

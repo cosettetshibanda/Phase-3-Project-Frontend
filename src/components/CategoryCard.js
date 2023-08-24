@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom"
 import Animal from "./Animal";
 import { useEffect, useState } from "react";
 
-function CategoryCard ({categories, handleAddAnimal, onDeleteAnimal}) {
+function CategoryCard ({categories, handleAddAnimal, onDeleteAnimal, handleUpdateAnimal}) {
     const params = useParams()
     const [selectedCategory, setSelectedCategory] = useState({
         animals: []
@@ -22,12 +22,12 @@ function CategoryCard ({categories, handleAddAnimal, onDeleteAnimal}) {
             key={animal.id}
             animal={animal}
             onDeleteAnimal={onDeleteAnimal}
+            handleUpdateAnimal={handleUpdateAnimal}
         />
     ))
         
     return (
         <div>
-            <h1>{category.name}</h1>
             <div id="Animal-list">{animals}</div>
             <AnimalForm params={params} handleAddAnimal={handleAddAnimal} />
         </div>
