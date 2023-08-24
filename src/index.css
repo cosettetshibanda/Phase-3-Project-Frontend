@@ -33,7 +33,10 @@ h2 {
   font-family:cursive
 }
 
-h3 {
-  color:chocolate;
-  font-family:cursive
+a:hover {
+ color:crimson
+}
+
+div#root {
+  padding: 50px 100px 200px;
 }

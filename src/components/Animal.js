@@ -39,7 +39,7 @@ const [updateImg, setUpdateImg] = useState("")
     return (
         <div>
             <div className="animal">
-                <h3>{animal.name}</h3>
+                <h2>{animal.name}</h2>
                 <img src={animal.img} alt={animal.name} />
                 <form onSubmit={handleSubmit}>
                     <input value={updateImg} type="text" name="img" placeholder="Image URL" onChange={handleChange} />
