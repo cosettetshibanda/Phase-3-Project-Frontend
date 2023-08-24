@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div#project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 10rem;
+  row-gap: .25rem;
+  margin-top: 1rem;
+}
+
+div#Animal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 10rem;
+  row-gap: .25rem;
+  margin-top: 1rem;
+}
