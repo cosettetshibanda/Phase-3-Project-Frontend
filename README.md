@@ -39,3 +39,4 @@ To get this app up and running you need to by forking and then cloning this on g
 If you would like to make contributions to this website contact the creator at cosettetshibanda@gmail.com
 
 ## Blog
+https://medium.com/@cosettetshibanda/working-with-nested-data-on-the-backend-of-a-website-3f3f7e888ac5
