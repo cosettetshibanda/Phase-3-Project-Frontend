@@ -23,15 +23,8 @@ function App() {
   function handleDeleteAnimal(animal) {
     const category = categories.find((category) => category.id === animal.category_id)
     const updatedAnimals = category.animals.filter((a) => a.id !==animal.id);
-    const updatedCategory = {...category, animals: updatedAnimals}
-    const updatedCategories = categories.map((c) => {
-        if (c.id === category.id) {
-            return updatedCategory
-        }
-        else {
-            return c
-        }
-    })
+    const updatedCategories = categories.map((c) => c.id === category.id ? {...category, animals: updatedAnimals} : c)
+  
     setCategories(updatedCategories)
 }
   
@@ -39,30 +32,16 @@ function App() {
   function handleUpdateAnimal(updatedAnimal) {
     const category = categories.find((category) => category.id === updatedAnimal.category_id)
     const updatedAnimals = category.animals.map((animal) =>animal.id === updatedAnimal.id ? updatedAnimal : animal)
-    const updatedCategory = {...category, animals: updatedAnimals}
-    const updatedCategories = categories.map((c) => {
-        if (c.id === category.id) {
-            return updatedCategory
-        }
-        else {
-            return c
-        }
-    })
+    const updatedCategories = categories.map((c) => c.id === category.id ? {...category, animals: updatedAnimals} : c)
+  
     setCategories(updatedCategories)    
 }
 
 function handleAddAnimal(newAnimal) {
   const category = categories.find((category) => category.id === newAnimal.category_id)
   const updatedAnimals = [...category.animals, newAnimal]
-  const updatedCategory = {...category, animals: updatedAnimals}
-  const updatedCategories = categories.map((c) => {
-      if (c.id === category.id) {
-          return updatedCategory
-      }
-      else {
-          return c
-      }
-  })
+  const updatedCategories = categories.map((c) => c.id === category.id ? {...category, animals: updatedAnimals} : c)
+
   setCategories(updatedCategories)    
 }
 
